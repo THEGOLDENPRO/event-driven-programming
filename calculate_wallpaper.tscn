@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwr25vfpm7jro"]
+
+[ext_resource type="Texture2D" uid="uid://cs0ff138wqvin" path="res://wallpaper_bg.jpeg" id="1_yijam"]
+[ext_resource type="Script" path="res://scripts/LengthTextInput.cs" id="2_08pm8"]
+[ext_resource type="Script" path="res://scripts/WidthTextInput.cs" id="3_ooeue"]
+[ext_resource type="Script" path="res://scripts/SubmitButton.cs" id="4_v4qmt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yyldx"]
+font_size = 50
+shadow_color = Color(0, 0, 0, 0.662745)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ebf8m"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_y18gv"]
+font_size = 40
+
+[node name="CalculateWallpaper" type="Node2D"]
+
+[node name="WallpaperBg" type="Sprite2D" parent="."]
+modulate = Color(0.454902, 0.454902, 0.454902, 1)
+position = Vector2(576, 320)
+scale = Vector2(0.631482, 0.631482)
+texture = ExtResource("1_yijam")
+
+[node name="Text" type="Label" parent="."]
+offset_left = 296.0
+offset_top = 64.0
+offset_right = 856.0
+offset_bottom = 144.0
+text = "Calcutate Wallpapers"
+label_settings = SubResource("LabelSettings_yyldx")
+horizontal_alignment = 1
+
+[node name="Form" type="Node2D" parent="."]
+position = Vector2(0, -63)
+
+[node name="LengthInput" type="Node2D" parent="Form"]
+
+[node name="Text" type="Label" parent="Form/LengthInput"]
+offset_left = 344.0
+offset_top = 295.0
+offset_right = 504.0
+offset_bottom = 375.0
+text = "Length:"
+label_settings = SubResource("LabelSettings_ebf8m")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LengthTextInput" type="TextEdit" parent="Form/LengthInput"]
+offset_left = 512.0
+offset_top = 295.0
+offset_right = 808.0
+offset_bottom = 375.0
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Enter Length"
+script = ExtResource("2_08pm8")
+metadata/_edit_use_anchors_ = true
+
+[node name="WidthInput" type="Node2D" parent="Form"]
+position = Vector2(0, 120)
+
+[node name="Text" type="Label" parent="Form/WidthInput"]
+offset_left = 344.0
+offset_top = 272.0
+offset_right = 504.0
+offset_bottom = 352.0
+text = "Width:"
+label_settings = SubResource("LabelSettings_ebf8m")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="WidthTextInput" type="TextEdit" parent="Form/WidthInput"]
+offset_left = 512.0
+offset_top = 272.0
+offset_right = 808.0
+offset_bottom = 352.0
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Enter Width"
+script = ExtResource("3_ooeue")
+metadata/_edit_use_anchors_ = true
+
+[node name="SubmitButton" type="Button" parent="Form"]
+offset_left = 416.0
+offset_top = 511.0
+offset_right = 736.0
+offset_bottom = 607.0
+script = ExtResource("4_v4qmt")
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="Label" parent="Form/SubmitButton"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 8.0
+offset_right = 232.0
+offset_bottom = 88.0
+text = "Submit"
+label_settings = SubResource("LabelSettings_y18gv")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="text_changed" from="Form/LengthInput/LengthTextInput" to="Form/LengthInput/LengthTextInput" method="_on_text_changed"]
+[connection signal="pressed" from="Form/SubmitButton" to="Form/SubmitButton" method="_on_pressed"]

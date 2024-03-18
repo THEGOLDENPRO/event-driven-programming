@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0lqd1x7y41w2"]
+
+[ext_resource type="Script" path="res://scripts/BeginButton.cs" id="1_8ws25"]
+[ext_resource type="Texture2D" uid="uid://cs0ff138wqvin" path="res://wallpaper_bg.jpeg" id="1_ww8n1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cm73u"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_obdv2"]
+font_size = 50
+shadow_color = Color(0, 0, 0, 0.662745)
+shadow_offset = Vector2(2, 2)
+
+[node name="Main" type="Node2D"]
+
+[node name="WallpaperBg" type="Sprite2D" parent="."]
+position = Vector2(576, 320)
+scale = Vector2(0.631482, 0.631482)
+texture = ExtResource("1_ww8n1")
+
+[node name="BeginButton" type="Button" parent="."]
+offset_left = 416.0
+offset_top = 392.0
+offset_right = 736.0
+offset_bottom = 504.0
+script = ExtResource("1_8ws25")
+
+[node name="Text" type="Label" parent="BeginButton"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 16.0
+offset_right = 232.0
+offset_bottom = 88.0
+text = "Begin"
+label_settings = SubResource("LabelSettings_cm73u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text" type="Label" parent="."]
+offset_left = 304.0
+offset_top = 64.0
+offset_right = 856.0
+offset_bottom = 136.0
+text = "Wallpaper Warehouse"
+label_settings = SubResource("LabelSettings_obdv2")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="BeginButton" to="BeginButton" method="_on_pressed"]

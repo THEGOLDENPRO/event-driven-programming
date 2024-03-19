@@ -2,11 +2,11 @@ using Godot;
 
 public partial class BeginButton : Godot.Button
 {
-	public Node calculateWallpaperScene;
+	public Node calculateScene;
 
 	public override void _Ready()
 	{
-		calculateWallpaperScene = ResourceLoader.Load<PackedScene>("res://scenes/calculate_wallpaper.tscn").Instantiate();
+		calculateScene = ResourceLoader.Load<PackedScene>("res://scenes/calculate.tscn").Instantiate();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,7 +16,7 @@ public partial class BeginButton : Godot.Button
 
 	private void _on_pressed()
 	{
-		GetTree().Root.AddChild(calculateWallpaperScene);
+		GetTree().Root.AddChild(calculateScene);
 	}
 
 }

@@ -2,7 +2,7 @@ using Godot;
 
 public partial class BeginButton : Godot.Button
 {
-	public Node calculateScene;
+	private Node calculateScene;
 
 	public override void _Ready()
 	{
@@ -17,6 +17,7 @@ public partial class BeginButton : Godot.Button
 	private void _on_pressed()
 	{
 		GetTree().Root.AddChild(calculateScene);
+		GetTree().Root.RemoveChild(GetTree().Root.GetChild(0));
 	}
 
 }

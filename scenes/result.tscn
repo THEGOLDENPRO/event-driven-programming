@@ -1,3 +1,48 @@
-[gd_scene format=3 uid="uid://lm8kpgrtuksu"]
+[gd_scene load_steps=3 format=3 uid="uid://lm8kpgrtuksu"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://mhbc331k468w" path="res://results_background.webp" id="1_vkehq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_obdv2"]
+font_size = 50
+shadow_color = Color(0, 0, 0, 0.662745)
+shadow_offset = Vector2(2, 2)
+
+[node name="Main" type="Node2D"]
+
+[node name="ResultsBackground" type="Sprite2D" parent="."]
+position = Vector2(582, 312)
+scale = Vector2(0.329061, 0.329061)
+texture = ExtResource("1_vkehq")
+
+[node name="Text" type="Label" parent="."]
+offset_left = 304.0
+offset_top = 64.0
+offset_right = 856.0
+offset_bottom = 136.0
+size_flags_horizontal = 4
+text = "Results"
+label_settings = SubResource("LabelSettings_obdv2")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="WallpapersAmount" type="Node2D" parent="."]
+
+[node name="Text" type="Label" parent="WallpapersAmount"]
+offset_left = 226.0
+offset_top = 287.0
+offset_right = 650.0
+offset_bottom = 356.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Amount Needed: "
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="WallpapersAmount"]
+offset_left = 662.0
+offset_top = 289.0
+offset_right = 691.0
+offset_bottom = 358.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1

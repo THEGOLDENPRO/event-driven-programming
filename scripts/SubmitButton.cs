@@ -7,9 +7,11 @@ public partial class SubmitButton : Button
 	private const int wallpaperWidth = 50;
 	private const int wallpaperLength = 1000;
 
-	// Called when the node enters the scene tree for the first time.
+	public Node resultScene;
+
 	public override void _Ready()
 	{
+		resultScene = ResourceLoader.Load<PackedScene>("res://scenes/result.tscn").Instantiate();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -29,6 +31,16 @@ public partial class SubmitButton : Button
         return numberOfWallpapersNeeded;
 	}
 
+	private void ShowResult(int wallpapersNeeded, int totalCost) 
+	{
+		Label WallpapersAmountLabel = (Label)resultScene.GetChild(1).GetChild(1);
+		WallpapersAmountLabel.Text = wallpapersNeeded.ToString();
+
+		GetTree().Root.AddChild(resultScene); // Switch to result scene.
+		GetTree().Root.RemoveChild(GetTree().Root.GetChild(0));
+
+	}
+
 	private void _on_pressed()
 	{
 		Node parent_node = GetParent();
@@ -39,12 +51,14 @@ public partial class SubmitButton : Button
 		int wallpaperLength = int.Parse(length_input.GetLineEdit().Text);
 		int wallpaperWidth = int.Parse(width_input.GetLineEdit().Text); // This is in cm so we'll have to convert it to meters for the calculate function.
 
-		int wallpaperNeeded = calculate_number_of_wallpapers(wallpaperLength, wallpaperWidth * 100);
+		int wallpapersNeeded = calculate_number_of_wallpapers(wallpaperLength, wallpaperWidth * 100);
 
-		int totalCost = wallpaperCost * wallpaperNeeded;
+		int totalCost = wallpaperCost * wallpapersNeeded;
+
+		ShowResult(wallpapersNeeded, totalCost);
 
 		GD.Print(
-			"wallpapers needed: " + wallpaperNeeded
+			"wallpapers needed: " + wallpapersNeeded
 		);
 	}
 }

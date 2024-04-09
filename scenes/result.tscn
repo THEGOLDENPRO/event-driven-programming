@@ -10,6 +10,7 @@ shadow_offset = Vector2(2, 2)
 [node name="Main" type="Node2D"]
 
 [node name="ResultsBackground" type="Sprite2D" parent="."]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
 position = Vector2(582, 312)
 scale = Vector2(0.329061, 0.329061)
 texture = ExtResource("1_vkehq")

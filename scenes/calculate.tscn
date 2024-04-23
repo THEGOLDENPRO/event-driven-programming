@@ -25,11 +25,11 @@ scale = Vector2(0.631482, 0.631482)
 texture = ExtResource("1_yijam")
 
 [node name="Text" type="Label" parent="."]
-offset_left = 296.0
-offset_top = 64.0
-offset_right = 856.0
-offset_bottom = 144.0
-text = "Calcutate a Wallpaper"
+offset_left = 232.0
+offset_top = 88.0
+offset_right = 920.0
+offset_bottom = 168.0
+text = "Enter Wallpaper Dimensions"
 label_settings = SubResource("LabelSettings_yyldx")
 horizontal_alignment = 1
 

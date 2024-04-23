@@ -1,17 +1,17 @@
 using System;
 using Godot;
+using System.Text.RegularExpressions;
 
 public partial class SubmitButton : Button
 {
 	private const int wallpaperCost = 10; // £10 per wallpaper
 	private const int wallpaperWidth = 50;
 	private const int wallpaperLength = 1000;
-
-	public Node resultScene;
+	public Node purchaseScene;
 
 	public override void _Ready()
 	{
-		resultScene = ResourceLoader.Load<PackedScene>("res://scenes/result.tscn").Instantiate();
+		purchaseScene = ResourceLoader.Load<PackedScene>("res://scenes/purchase.tscn").Instantiate();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,14 +31,25 @@ public partial class SubmitButton : Button
         return numberOfWallpapersNeeded;
 	}
 
+	private bool IsDetailsValid(string email, string phoneNumber, string address)
+	{
+		Regex emailRegex = new Regex("");
+		Regex phoneNumberRegex = new Regex("");
+
+		if (emailRegex.IsMatch(email) && phoneNumberRegex.IsMatch(phoneNumber)) {
+			return true;
+		}
+
+		return false;
+	}
+
 	private void ShowResult(int wallpapersNeeded, int totalCost) 
 	{
-		Label WallpapersAmountLabel = (Label)resultScene.GetChild(2).GetChild(1);
+		Label WallpapersAmountLabel = (Label)purchaseScene.GetChild(2).GetChild(1);
 		WallpapersAmountLabel.Text = wallpapersNeeded.ToString();
 
-		GetTree().Root.AddChild(resultScene); // Switch to result scene.
+		GetTree().Root.AddChild(purchaseScene); // Switch to result scene.
 		GetTree().Root.RemoveChild(GetTree().Root.GetChild(0));
-
 	}
 
 	private void _on_pressed()
@@ -57,8 +68,8 @@ public partial class SubmitButton : Button
 
 		ShowResult(wallpapersNeeded, totalCost);
 
-		GD.Print(
-			"wallpapers needed: " + wallpapersNeeded
-		);
+		//if (IsDetailsValid()) {
+		//	ShowResult(wallpapersNeeded, totalCost);
+		//}
 	}
 }

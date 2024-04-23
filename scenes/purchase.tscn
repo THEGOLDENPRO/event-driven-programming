@@ -1,0 +1,175 @@
+[gd_scene load_steps=6 format=3 uid="uid://lm8kpgrtuksu"]
+
+[ext_resource type="Texture2D" uid="uid://mhbc331k468w" path="res://results_background.webp" id="1_muao4"]
+[ext_resource type="Script" path="res://scripts/SubmitButton.cs" id="4_yrbpe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_obdv2"]
+font_size = 50
+shadow_color = Color(0, 0, 0, 0.662745)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_23fsi"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ky5m"]
+font_size = 24
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[node name="Main" type="Node2D"]
+
+[node name="ResultsBackground" type="Sprite2D" parent="."]
+modulate = Color(0.431373, 0.431373, 0.431373, 1)
+position = Vector2(582, 312)
+scale = Vector2(0.329061, 0.329061)
+texture = ExtResource("1_muao4")
+metadata/_edit_lock_ = true
+
+[node name="Text" type="Label" parent="."]
+offset_left = 312.0
+offset_top = 72.0
+offset_right = 864.0
+offset_bottom = 144.0
+size_flags_horizontal = 4
+text = "🛒 Shopping Kart"
+label_settings = SubResource("LabelSettings_obdv2")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="WallpapersAmount" type="Node2D" parent="."]
+position = Vector2(-136, 248)
+
+[node name="Text" type="Label" parent="WallpapersAmount"]
+offset_left = 167.0
+offset_top = 287.0
+offset_right = 665.0
+offset_bottom = 356.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 39
+text = "Wallpapers Needed: "
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="WallpapersAmount"]
+offset_left = 662.0
+offset_top = 289.0
+offset_right = 691.0
+offset_bottom = 358.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+
+[node name="PurchaseButton" type="Button" parent="."]
+offset_left = 800.0
+offset_top = 520.0
+offset_right = 1120.0
+offset_bottom = 616.0
+script = ExtResource("4_yrbpe")
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="Label" parent="PurchaseButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.25
+anchor_right = 0.275
+offset_left = 88.0
+offset_top = 8.0
+offset_right = 232.0
+offset_bottom = 88.0
+text = "Purchase"
+label_settings = SubResource("LabelSettings_23fsi")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Form" type="Node2D" parent="."]
+position = Vector2(-256, -120)
+
+[node name="NameInput" type="Node2D" parent="Form"]
+position = Vector2(56, 8)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Form/NameInput"]
+offset_left = 224.0
+offset_top = 257.0
+offset_right = 608.0
+offset_bottom = 291.0
+text = "Name:"
+label_settings = SubResource("LabelSettings_7ky5m")
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Form/NameInput"]
+offset_left = 224.0
+offset_top = 297.0
+offset_right = 608.0
+offset_bottom = 377.0
+placeholder_text = "Mr Smart"
+
+[node name="CardNumberInput" type="Node2D" parent="Form"]
+position = Vector2(56, 136)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Form/CardNumberInput"]
+offset_left = 224.0
+offset_top = 257.0
+offset_right = 608.0
+offset_bottom = 291.0
+text = "Card Number:"
+label_settings = SubResource("LabelSettings_7ky5m")
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Form/CardNumberInput"]
+offset_left = 224.0
+offset_top = 297.0
+offset_right = 608.0
+offset_bottom = 377.0
+placeholder_text = "0123 4567 8900 1111"
+
+[node name="CardExpiringDateInput" type="Node2D" parent="Form"]
+position = Vector2(464, 136)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Form/CardExpiringDateInput"]
+offset_left = 224.0
+offset_top = 257.0
+offset_right = 608.0
+offset_bottom = 291.0
+text = "Card Expiring Date:"
+label_settings = SubResource("LabelSettings_7ky5m")
+horizontal_alignment = 1
+
+[node name="MonthLineEdit" type="LineEdit" parent="Form/CardExpiringDateInput"]
+offset_left = 216.0
+offset_top = 296.0
+offset_right = 408.0
+offset_bottom = 376.0
+placeholder_text = "MM"
+
+[node name="YearLineEdit" type="LineEdit" parent="Form/CardExpiringDateInput"]
+offset_left = 416.0
+offset_top = 297.0
+offset_right = 608.0
+offset_bottom = 377.0
+placeholder_text = "YYYY"
+
+[node name="CardCSVInput" type="Node2D" parent="Form"]
+position = Vector2(736, 128)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Form/CardCSVInput"]
+offset_left = 352.0
+offset_top = 264.0
+offset_right = 480.0
+offset_bottom = 298.0
+text = "CSV:"
+label_settings = SubResource("LabelSettings_7ky5m")
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Form/CardCSVInput"]
+offset_left = 352.0
+offset_top = 304.0
+offset_right = 480.0
+offset_bottom = 384.0
+placeholder_text = "123"
+
+[connection signal="pressed" from="PurchaseButton" to="PurchaseButton" method="_on_pressed"]

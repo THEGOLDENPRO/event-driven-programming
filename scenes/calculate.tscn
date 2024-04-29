@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cnwrwm66h1sry"]
 
-[ext_resource type="Texture2D" uid="uid://cs0ff138wqvin" path="res://wallpaper_bg.jpeg" id="1_yijam"]
+[ext_resource type="Texture2D" uid="uid://u01ooh5unruc" path="res://assets/wallpaper_bg.jpeg" id="1_yijam"]
 [ext_resource type="Script" path="res://scripts/LengthTextInput.cs" id="2_c670o"]
 [ext_resource type="Script" path="res://scripts/WidthTextInput.cs" id="2_iv3mg"]
 [ext_resource type="Script" path="res://scripts/SubmitButton.cs" id="4_v4qmt"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://lm8kpgrtuksu"]
 
-[ext_resource type="Texture2D" uid="uid://mhbc331k468w" path="res://results_background.webp" id="1_muao4"]
+[ext_resource type="Texture2D" uid="uid://t48gevsat0yj" path="res://assets/results_background.webp" id="1_muao4"]
 [ext_resource type="Script" path="res://scripts/SubmitButton.cs" id="4_yrbpe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_obdv2"]
@@ -50,12 +50,12 @@ text = "Wallpapers Needed: "
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="WallpapersAmount"]
-offset_left = 662.0
-offset_top = 289.0
-offset_right = 691.0
-offset_bottom = 358.0
+offset_left = 616.0
+offset_top = 288.0
+offset_right = 658.0
+offset_bottom = 342.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 39
 text = "0"
 horizontal_alignment = 1
 

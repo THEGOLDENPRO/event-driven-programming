@@ -19,7 +19,7 @@ public partial class SubmitButton : Button
 	{
 	}
 
-	private int calculate_number_of_wallpapers(int length, int width)
+	private int CalculateNumberOfWallpapers(int length, int width)
 	{
 		int areaOfEachWallpaper = wallpaperWidth * wallpaperLength;
 
@@ -62,7 +62,7 @@ public partial class SubmitButton : Button
 		int wallpaperLength = int.Parse(length_input.GetLineEdit().Text);
 		int wallpaperWidth = int.Parse(width_input.GetLineEdit().Text); // This is in cm so we'll have to convert it to meters for the calculate function.
 
-		int wallpapersNeeded = calculate_number_of_wallpapers(wallpaperLength, wallpaperWidth * 100);
+		int wallpapersNeeded = CalculateNumberOfWallpapers(wallpaperLength, wallpaperWidth * 100);
 
 		int totalCost = wallpaperCost * wallpapersNeeded;
 

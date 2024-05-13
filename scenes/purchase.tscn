@@ -31,7 +31,7 @@ offset_top = 72.0
 offset_right = 864.0
 offset_bottom = 144.0
 size_flags_horizontal = 4
-text = "🛒 Shopping Kart"
+text = "🛒 Shopping Cart"
 label_settings = SubResource("LabelSettings_obdv2")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -198,19 +198,20 @@ text = "Card Expiring Date:"
 label_settings = SubResource("LabelSettings_7ky5m")
 horizontal_alignment = 1
 
-[node name="MonthLineEdit" type="LineEdit" parent="Form/CardExpiringDateInput"]
-offset_left = 216.0
+[node name="MonthSpinBox" type="SpinBox" parent="Form/CardExpiringDateInput"]
+offset_left = 224.0
 offset_top = 296.0
-offset_right = 408.0
+offset_right = 416.0
 offset_bottom = 376.0
-placeholder_text = "MM"
+max_value = 12.0
 
-[node name="YearLineEdit" type="LineEdit" parent="Form/CardExpiringDateInput"]
+[node name="YearSpinBox" type="SpinBox" parent="Form/CardExpiringDateInput"]
 offset_left = 416.0
-offset_top = 297.0
+offset_top = 296.0
 offset_right = 608.0
-offset_bottom = 377.0
-placeholder_text = "YYYY"
+offset_bottom = 376.0
+max_value = 9999.0
+value = 2025.0
 
 [node name="CardCSVInput" type="Node2D" parent="Form"]
 position = Vector2(736, 128)
@@ -231,5 +232,17 @@ offset_top = 304.0
 offset_right = 480.0
 offset_bottom = 384.0
 placeholder_text = "123"
+
+[node name="ValidationStatus" type="Label" parent="."]
+offset_top = 416.0
+offset_right = 1160.0
+offset_bottom = 497.0
+theme_override_colors/font_color = Color(1, 0.407245, 0.338652, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="pressed" from="PurchaseButton" to="PurchaseButton" method="_on_pressed"]

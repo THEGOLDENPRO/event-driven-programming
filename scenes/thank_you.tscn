@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7lw3wfy0s57q"]
+[gd_scene load_steps=5 format=3 uid="uid://cmhn164ysy0k5"]
 
-[ext_resource type="Script" path="res://scripts/BeginButton.cs" id="1_8ws25"]
-[ext_resource type="Texture2D" uid="uid://u01ooh5unruc" path="res://assets/wallpaper_bg.jpeg" id="1_ww8n1"]
+[ext_resource type="Texture2D" uid="uid://u01ooh5unruc" path="res://assets/wallpaper_bg.jpeg" id="1_v11vp"]
+[ext_resource type="Script" path="res://scripts/ExitButton.cs" id="2_o0tkr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cm73u"]
 font_size = 40
@@ -16,33 +16,34 @@ shadow_offset = Vector2(2, 2)
 [node name="WallpaperBg" type="Sprite2D" parent="."]
 position = Vector2(576, 320)
 scale = Vector2(0.631482, 0.631482)
-texture = ExtResource("1_ww8n1")
+texture = ExtResource("1_v11vp")
 
-[node name="BeginButton" type="Button" parent="."]
+[node name="ExitButton" type="Button" parent="."]
 offset_left = 416.0
 offset_top = 392.0
 offset_right = 736.0
 offset_bottom = 504.0
-script = ExtResource("1_8ws25")
+script = ExtResource("2_o0tkr")
 
-[node name="Text" type="Label" parent="BeginButton"]
+[node name="Text" type="Label" parent="ExitButton"]
 layout_mode = 0
 offset_left = 88.0
 offset_top = 16.0
 offset_right = 232.0
 offset_bottom = 88.0
-text = "Begin"
+text = "Exit"
 label_settings = SubResource("LabelSettings_cm73u")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Text" type="Label" parent="."]
-offset_left = 304.0
-offset_top = 64.0
-offset_right = 856.0
-offset_bottom = 136.0
-text = "Wallpaper Warehouse"
+offset_left = 264.0
+offset_top = 120.0
+offset_right = 888.0
+offset_bottom = 189.0
+text = "Thank you for your order!"
 label_settings = SubResource("LabelSettings_obdv2")
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="BeginButton" to="BeginButton" method="_on_pressed"]
+[connection signal="pressed" from="ExitButton" to="ExitButton" method="_on_pressed"]

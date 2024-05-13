@@ -1,8 +1,7 @@
 using System;
 using Godot;
 using System.Text.RegularExpressions;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
+using System.Threading.Tasks;
 
 public partial class PurchaseButton : Button
 {
@@ -13,7 +12,7 @@ public partial class PurchaseButton : Button
 	public override void _Ready()
 	{
 		validationStatus = (Label) GetParent().GetChild(-1);
-		// thankYouScene = ResourceLoader.Load<PackedScene>("res://scenes/thank_you.tscn").Instantiate();
+		thankYouScene = ResourceLoader.Load<PackedScene>("res://scenes/thank_you.tscn").Instantiate();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,21 +20,29 @@ public partial class PurchaseButton : Button
 	{
 	}
 
+	private async void ShowThankYou() 
+	{
+		await Task.Delay(TimeSpan.FromMilliseconds(3000)); // delay before switching to thank you scene.
+
+		GetTree().Root.AddChild(thankYouScene); // Switch to thank you scene.
+		GetTree().Root.RemoveChild(GetTree().Root.GetChild(0));
+	}
+
 	private Tuple<bool, string> AreDetailsValid(
 		string name, 
 		string email, 
 		string phoneNumber, 
+		string address, 
 		string cardNumber, 
-		double cardExpiringDateMonth, 
-		double cardExpiringDateYear, 
 		string cardCSV
 	)
 	{
+		Regex emptyStringRegex = new Regex(@"^\s*$");
+
 		Regex nameRegex = new Regex(@"^[a-zA-Z]+$");
 		Regex emailRegex = new Regex(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
 		Regex phoneRegex = new Regex(@"^\+?[0-9\s-]{7,}$");
 		Regex cardNumberRegex = new Regex(@"^(\d{4}\s){3}\d{4}$");
-		Regex cardExpiringDateMonthRegex = new Regex(@"");
 
 		if (!nameRegex.IsMatch(name)) {
 			return Tuple.Create(
@@ -55,12 +62,23 @@ public partial class PurchaseButton : Button
 			);
 		}
 
+		if (emptyStringRegex.IsMatch(address)) { // return false if address field is empty.
+			return Tuple.Create(
+				false, "Address field is empty!"
+			);
+		}
+
 		if (!cardNumberRegex.IsMatch(cardNumber)) {
 			return Tuple.Create(
 				false, "Card number is invalid!"
 			);
 		}
 
+		if (emptyStringRegex.IsMatch(cardCSV)) {
+			return Tuple.Create(
+				false, "Card CSV is not present!"
+			);
+		}
 
 		return Tuple.Create(true, "All good 👍");
 	}
@@ -68,34 +86,42 @@ public partial class PurchaseButton : Button
 	private void _on_pressed()
 	{
 		Node parentNode = GetParent();
-		Node form = parentNode.GetChild(4);
+		Node form = parentNode.GetChild(5);
 
 		LineEdit nameInput = (LineEdit) form.GetChild(0).GetChild(1);
 		LineEdit emailInput = (LineEdit) form.GetChild(1).GetChild(1);
 		LineEdit phoneInput = (LineEdit) form.GetChild(2).GetChild(1);
+		LineEdit addressInput = (LineEdit) form.GetChild(3).GetChild(1);
 		LineEdit cardNumberInput = (LineEdit) form.GetChild(4).GetChild(1);
-		SpinBox cardExpiringDateMonthInput = (SpinBox) form.GetChild(5).GetChild(1);
-		SpinBox cardExpiringDateYearInput = (SpinBox) form.GetChild(5).GetChild(2);
+		// SpinBox cardExpiringDateMonthInput = (SpinBox) form.GetChild(5).GetChild(1);
+		// SpinBox cardExpiringDateYearInput = (SpinBox) form.GetChild(5).GetChild(2);
 		LineEdit cardCSVInput = (LineEdit) form.GetChild(6).GetChild(1);
 
 		Tuple<bool, string> validationResult = AreDetailsValid(
 			nameInput.Text, 
 			emailInput.Text, 
 			phoneInput.Text, 
+			addressInput.Text, 
 			cardNumberInput.Text, 
-			cardExpiringDateMonthInput.Value, 
-			cardExpiringDateYearInput.Value, 
 			cardCSVInput.Text
 		);
 
-		if (validationResult.Item1) {
+		(bool isValid, string message) = validationResult;
+
+		if (isValid) {
 			validationStatus.AddThemeColorOverride("font_color", new Color(0, 255, 0));
 		} else {
 			validationStatus.AddThemeColorOverride("font_color", new Color(1, 0.407f, 0.339f));
 		}
 
-		validationStatus.Text = validationResult.Item2;
+		validationStatus.Text = message;
 
 		GD.Print(">> " + validationResult);
+
+		if (isValid) {
+			ShowThankYou();
+		}
+
 	}
+
 }

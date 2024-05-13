@@ -1,4 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
-*.old
+event-driven-programming.csproj.*
 releases

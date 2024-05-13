@@ -38,26 +38,53 @@ metadata/_edit_use_anchors_ = true
 
 [node name="WallpapersAmount" type="Node2D" parent="."]
 position = Vector2(-136, 248)
+metadata/_edit_lock_ = true
 
 [node name="Text" type="Label" parent="WallpapersAmount"]
-offset_left = 167.0
-offset_top = 287.0
-offset_right = 665.0
-offset_bottom = 356.0
+offset_left = 176.0
+offset_top = 304.0
+offset_right = 524.0
+offset_bottom = 353.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 39
+theme_override_font_sizes/font_size = 35
 text = "Wallpapers Needed: "
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="WallpapersAmount"]
-offset_left = 616.0
-offset_top = 288.0
-offset_right = 658.0
-offset_bottom = 342.0
+offset_left = 528.0
+offset_top = 304.0
+offset_right = 584.0
+offset_bottom = 353.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 39
+theme_override_font_sizes/font_size = 35
+text = "0"
+vertical_alignment = 1
+
+[node name="WallpapersCost" type="Node2D" parent="."]
+position = Vector2(-272, 496)
+
+[node name="Text" type="Label" parent="WallpapersCost"]
+offset_left = 1152.0
+offset_top = -32.0
+offset_right = 1255.0
+offset_bottom = 17.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Price: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="WallpapersCost"]
+offset_left = 1256.0
+offset_top = -32.0
+offset_right = 1312.0
+offset_bottom = 17.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
 text = "0"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PurchaseButton" type="Button" parent="."]
 offset_left = 800.0
@@ -184,6 +211,7 @@ offset_top = 297.0
 offset_right = 608.0
 offset_bottom = 377.0
 placeholder_text = "0123 4567 8900 1111"
+max_length = 19
 
 [node name="CardExpiringDateInput" type="Node2D" parent="Form"]
 position = Vector2(464, 136)
@@ -203,7 +231,9 @@ offset_left = 224.0
 offset_top = 296.0
 offset_right = 416.0
 offset_bottom = 376.0
+min_value = 1.0
 max_value = 12.0
+value = 1.0
 
 [node name="YearSpinBox" type="SpinBox" parent="Form/CardExpiringDateInput"]
 offset_left = 416.0
@@ -232,6 +262,7 @@ offset_top = 304.0
 offset_right = 480.0
 offset_bottom = 384.0
 placeholder_text = "123"
+max_length = 3
 
 [node name="ValidationStatus" type="Label" parent="."]
 offset_top = 416.0
@@ -244,5 +275,6 @@ text = "..."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="PurchaseButton" to="PurchaseButton" method="_on_pressed"]

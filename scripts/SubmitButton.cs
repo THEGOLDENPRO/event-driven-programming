@@ -46,7 +46,10 @@ public partial class SubmitButton : Button
 	private void ShowResult(int wallpapersNeeded, int totalCost) 
 	{
 		Label WallpapersAmountLabel = (Label)purchaseScene.GetChild(2).GetChild(1);
+		Label WallpapersCostLabel = (Label)purchaseScene.GetChild(3).GetChild(1);
+
 		WallpapersAmountLabel.Text = wallpapersNeeded.ToString();
+		WallpapersCostLabel.Text = totalCost.ToString();
 
 		GetTree().Root.AddChild(purchaseScene); // Switch to result scene.
 		GetTree().Root.RemoveChild(GetTree().Root.GetChild(0));

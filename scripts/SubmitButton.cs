@@ -23,12 +23,12 @@ public partial class SubmitButton : Button
 	{
 		int areaOfEachWallpaper = wallpaperWidth * wallpaperLength;
 
-        int areaOfWallpaperRequested = length * width;
+		int areaOfWallpaperRequested = length * width;
 
-        // The number of wallpapers needed, rounding up to make sure we cover the entire wall.
-        int numberOfWallpapersNeeded = (int) Math.Ceiling((double) areaOfWallpaperRequested / areaOfEachWallpaper);
+		// The number of wallpapers needed, rounding up to make sure we cover the entire wall.
+		int numberOfWallpapersNeeded = (int) Math.Ceiling((double) areaOfWallpaperRequested / areaOfEachWallpaper);
 
-        return numberOfWallpapersNeeded;
+		return numberOfWallpapersNeeded;
 	}
 
 	private bool IsDetailsValid(string email, string phoneNumber, string address)

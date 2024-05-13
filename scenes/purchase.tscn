@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://lm8kpgrtuksu"]
 
 [ext_resource type="Texture2D" uid="uid://t48gevsat0yj" path="res://assets/results_background.webp" id="1_muao4"]
-[ext_resource type="Script" path="res://scripts/SubmitButton.cs" id="4_yrbpe"]
+[ext_resource type="Script" path="res://scripts/PurchaseButton.cs" id="2_2hncy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_obdv2"]
 font_size = 50
@@ -64,7 +64,7 @@ offset_left = 800.0
 offset_top = 520.0
 offset_right = 1120.0
 offset_bottom = 616.0
-script = ExtResource("4_yrbpe")
+script = ExtResource("2_2hncy")
 metadata/_edit_use_anchors_ = true
 
 [node name="Text" type="Label" parent="PurchaseButton"]
@@ -104,6 +104,66 @@ offset_top = 297.0
 offset_right = 608.0
 offset_bottom = 377.0
 placeholder_text = "Mr Smart"
+
+[node name="EmailInput" type="Node2D" parent="Form"]
+position = Vector2(456, 8)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Form/EmailInput"]
+offset_left = 224.0
+offset_top = 257.0
+offset_right = 424.0
+offset_bottom = 291.0
+text = "Email:"
+label_settings = SubResource("LabelSettings_7ky5m")
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Form/EmailInput"]
+offset_left = 224.0
+offset_top = 297.0
+offset_right = 424.0
+offset_bottom = 377.0
+placeholder_text = "example@example.com"
+
+[node name="PhoneInput" type="Node2D" parent="Form"]
+position = Vector2(672, 8)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Form/PhoneInput"]
+offset_left = 224.0
+offset_top = 257.0
+offset_right = 400.0
+offset_bottom = 291.0
+text = "Phone:"
+label_settings = SubResource("LabelSettings_7ky5m")
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Form/PhoneInput"]
+offset_left = 224.0
+offset_top = 297.0
+offset_right = 400.0
+offset_bottom = 377.0
+placeholder_text = "+44 7700900329"
+
+[node name="AddressInput" type="Node2D" parent="Form"]
+position = Vector2(864, 8)
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Form/AddressInput"]
+offset_left = 224.0
+offset_top = 257.0
+offset_right = 432.0
+offset_bottom = 291.0
+text = "Address:"
+label_settings = SubResource("LabelSettings_7ky5m")
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Form/AddressInput"]
+offset_left = 224.0
+offset_top = 297.0
+offset_right = 432.0
+offset_bottom = 377.0
+placeholder_text = "13 Johnson Road, London"
 
 [node name="CardNumberInput" type="Node2D" parent="Form"]
 position = Vector2(56, 136)

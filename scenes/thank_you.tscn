@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmhn164ysy0k5"]
+[gd_scene load_steps=5 format=3 uid="uid://dr6yht1s848lc"]
 
 [ext_resource type="Texture2D" uid="uid://u01ooh5unruc" path="res://assets/wallpaper_bg.jpeg" id="1_v11vp"]
 [ext_resource type="Script" path="res://scripts/ExitButton.cs" id="2_o0tkr"]

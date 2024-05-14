@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7lw3wfy0s57q"]
+[gd_scene load_steps=5 format=3 uid="uid://cmhn164ysy0k5"]
 
 [ext_resource type="Script" path="res://scripts/BeginButton.cs" id="1_8ws25"]
 [ext_resource type="Texture2D" uid="uid://u01ooh5unruc" path="res://assets/wallpaper_bg.jpeg" id="1_ww8n1"]
@@ -11,7 +11,7 @@ font_size = 50
 shadow_color = Color(0, 0, 0, 0.662745)
 shadow_offset = Vector2(2, 2)
 
-[node name="Main" type="Node2D"]
+[node name="Main2" type="Node2D"]
 
 [node name="WallpaperBg" type="Sprite2D" parent="."]
 position = Vector2(576, 320)
